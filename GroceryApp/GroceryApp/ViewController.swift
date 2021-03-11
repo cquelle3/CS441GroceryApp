@@ -20,8 +20,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
 
         table.dataSource = self;
-        // Do any additional setup after loading the view.
-        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -29,26 +27,19 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-        print("entered cellForRowAt");
-        
         let cell = UITableViewCell();
         cell.textLabel?.text = items[indexPath.row];
         return cell;
     }
     
     @IBAction func enterText(_sender: UIButton){
-        if(textField.text?.isEmpty == true){
+        if(textField.text?.trimmingCharacters(in: .whitespaces).isEmpty == true){
             return;
         }
         else{
-            
             items.append(textField.text!);
             textField.text = "";
-            
-            print(items);
-            
-            DispatchQueue.main.async { self.table.reloadData() }
+            self.table.reloadData();
         }
     }
     
