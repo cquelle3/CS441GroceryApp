@@ -24,6 +24,9 @@
                                 <rect key="frame" x="20" y="116" width="374" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Enter"/>
+                                <connections>
+                                    <action selector="enterTextWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nz4-b0-cux"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v6X-bj-3vE">
                                 <rect key="frame" x="20" y="67" width="374" height="34"/>
@@ -36,9 +39,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="enterButton" destination="RQf-T2-vc1" id="ru4-xh-Upb"/>
-                        <outlet property="table" destination="e9G-6n-EIB" id="JA9-Ll-nQG"/>
-                        <outlet property="text" destination="v6X-bj-3vE" id="yVf-5N-8V9"/>
+                        <outlet property="enterButton" destination="RQf-T2-vc1" id="8fZ-Rn-jJG"/>
+                        <outlet property="table" destination="e9G-6n-EIB" id="XSD-cp-hx0"/>
+                        <outlet property="textField" destination="v6X-bj-3vE" id="FKj-nb-Xfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

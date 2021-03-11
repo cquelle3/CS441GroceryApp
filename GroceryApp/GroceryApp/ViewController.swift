@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet var table: UITableView!
     @IBOutlet var textField: UITextField!
@@ -18,9 +18,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        table.dataSource = self;
         // Do any additional setup after loading the view.
-        
-       // table.delegate = self;
         
     }
 
@@ -28,18 +28,29 @@ class ViewController: UIViewController {
         return items.count;
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
+        print("entered cellForRowAt");
+        
+        let cell = UITableViewCell();
+        cell.textLabel?.text = items[indexPath.row];
+        return cell;
+    }
+    
     @IBAction func enterText(_sender: UIButton){
         if(textField.text?.isEmpty == true){
             return;
         }
         else{
+            
             items.append(textField.text!);
             textField.text = "";
-            table.reloadData();
+            
+            print(items);
+            
+            DispatchQueue.main.async { self.table.reloadData() }
         }
     }
-    
-    
     
     
     
